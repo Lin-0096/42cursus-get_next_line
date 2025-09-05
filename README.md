@@ -49,41 +49,42 @@ get_next_line/
 
 ---
 
-## 🔄 Simplified Logic Flow
+## 🚀 How to Compile
 
+### 🔧 For the basic version:
+```bash
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c
 ```
-1. Initialize a static buffer for the FD
-2. While the buffer doesn't contain a newline:
-     - Read from FD and append to buffer
-     - Stop on EOF or error
-3. Extract one line (ending with `\n` if present)
-4. Save remaining buffer content for the next call
-5. Return the extracted line
+
+### 🧩 For the bonus version (supports multiple files at once):
+```bash
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c main.c
 ```
+
+You can choose any `BUFFER_SIZE` value that suits your testing needs.
 
 ---
 
-## 🛠 How to Use
-
-### 1. Compile
-
-```bash
-make
-```
-
-### 2. Include in your code
+## 💻 Example
 
 ```c
 #include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 
-char *line = get_next_line(fd);
-```
+int main(void)
+{
+    int fd = open("example.txt", O_RDONLY);
+    char *line;
 
-### 3. Example
-
-```bash
-gcc -Wall -Wextra -Werror main.c get_next_line.c get_next_line_utils.c -o gnl
-./gnl test.txt
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("%s", line);
+        free(line);
+    }
+    close(fd);
+    return 0;
+}
 ```
 
 ---
@@ -104,25 +105,3 @@ Returns:
 
 - Support for reading from multiple file descriptors at the same time
 - Uses an array of static buffers indexed by FD
-
----
-
-## 🧪 Example Test (main.c)
-
-```c
-int fd = open("example.txt", O_RDONLY);
-char *line;
-while ((line = get_next_line(fd)) != NULL)
-{
-    printf("%s", line);
-    free(line);
-}
-close(fd);
-```
-
----
-
-## 👨‍💻 Author
-
-Developed by [Your Name]  
-[GitHub](https://github.com/Lin-0096)
