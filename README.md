@@ -1,7 +1,3 @@
-<div align="center">
-  <picture>
-    <img src="https://github.com/ayogun/42-project-badges/blob/main/badges/getnextlinem.png" alt="42 Get Next Line badge">
-  </picture>
 
   <p><a href="https://www.hive.fi/en/curriculum">Hive (42 School Network)</a> core curriculum project</p>
   <h1>get_next_line</h1>
@@ -62,30 +58,6 @@ cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_u
 ```
 
 You can choose any `BUFFER_SIZE` value that suits your testing needs.
-
----
-
-## 💻 Example
-
-```c
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-
-int main(void)
-{
-    int fd = open("example.txt", O_RDONLY);
-    char *line;
-
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        printf("%s", line);
-        free(line);
-    }
-    close(fd);
-    return 0;
-}
-```
 
 ---
 
