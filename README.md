@@ -1,3 +1,7 @@
+<div align="center">
+<picture>
+  <img alt="Get Next Line with bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/get_next_linem.png" />
+</picture>
 
   <p><a href="https://www.hive.fi/en/curriculum">Hive (42 School Network)</a> core curriculum project</p>
   <h1>get_next_line</h1>
