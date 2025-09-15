@@ -11,7 +11,7 @@
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Reads from any file descriptor (including STDIN)
 - Handles input of arbitrary size using a buffer
@@ -21,7 +21,7 @@
 
 ---
 
-## 🧠 Learning Objectives
+## Learning Objectives
 
 - File I/O with `read()` and buffer management
 - Persistent state via **static variables**
@@ -32,31 +32,14 @@
 
 ---
 
-## 🗂 Project Structure
+##  How to Compile
 
-```
-get_next_line/
-├── get_next_line.c            # Main logic
-├── get_next_line.h            # Function prototype and macros
-├── get_next_line_utils.c      # Helper functions
-├── get_next_line_bonus.c      # Bonus: multiple FD support
-├── get_next_line_bonus.h
-├── get_next_line_utils_bonus.c
-├── main.c                     # Example usage / test file
-├── Makefile
-└── README.md
-```
-
----
-
-## 🚀 How to Compile
-
-### 🔧 For the basic version:
+###  For the basic version:
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c main.c
 ```
 
-### 🧩 For the bonus version (supports multiple files at once):
+###  For the bonus version (supports multiple files at once):
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line_bonus.c get_next_line_utils_bonus.c main.c
 ```
@@ -65,19 +48,7 @@ You can choose any `BUFFER_SIZE` value that suits your testing needs.
 
 ---
 
-## 📌 Function Prototype
-
-```c
-char *get_next_line(int fd);
-```
-
-Returns:
-- A pointer to the next line (including `\n` if present)
-- `NULL` if EOF or error
-
----
-
-## ✅ Bonus
+##  Bonus
 
 - Support for reading from multiple file descriptors at the same time
 - Uses an array of static buffers indexed by FD
